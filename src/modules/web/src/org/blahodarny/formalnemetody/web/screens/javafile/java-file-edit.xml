@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="org.blahodarny.formalnemetody.web.screens.javafile">
+    <data>
+        <instance id="javaFileDc"
+                  class="org.blahodarny.formalnemetody.entity.JavaFile"
+                  view="javaFile-view">
+            <loader/>
+        </instance>
+        <collection id="projectsDc" class="org.blahodarny.formalnemetody.entity.JavaProject" view="_minimal">
+            <loader id="projectsLc">
+                <query>
+                    <![CDATA[select e from formalnemetody_JavaProject e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="sourceCodeEditor" spacing="true">
+        <form id="form" dataContainer="javaFileDc">
+            <column width="250px">
+                <textField id="titleField" property="title"/>
+                <!--
+                <lookupPickerField id="projectField" optionsContainer="projectsDc" property="project">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="open" type="picker_open"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </lookupPickerField>
+                -->
+            </column>
+        </form>
+        <sourceCodeEditor id="sourceCodeEditor" property="" mode="Java" width="100%"/>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

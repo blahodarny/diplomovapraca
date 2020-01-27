@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+
+    <view entity="formalnemetody_JavaFile" name="javaFile-view" extends="_local">
+        <property name="project" view="_minimal"/>
+    </view>
+    <view entity="formalnemetody_JavaProject" name="javaProject-view" extends="_local">
+        <property name="sources" view="_minimal">
+            <property name="source"/>
+            <property name="title"/>
+        </property>
+    </view>
+</views>

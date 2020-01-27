@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://browseCaption"
+        focusComponent="javaProjectsTable"
+        messagesPack="org.blahodarny.formalnemetody.web.screens.javaproject">
+    <data readOnly="true">
+        <collection id="javaProjectsDc"
+                    class="org.blahodarny.formalnemetody.entity.JavaProject"
+                    view="javaProject-view">
+            <loader id="javaProjectsDl">
+                <query>
+                    <![CDATA[select e from formalnemetody_JavaProject e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="javaProjectsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="javaProjectsTable"
+                dataLoader="javaProjectsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="javaProjectsTable"
+                    width="100%"
+                    dataContainer="javaProjectsDc"
+                    multiselect="true"
+                    presentations="true">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="title"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="javaProjectsTable.create"/>
+                <button id="editBtn" action="javaProjectsTable.edit"/>
+                <button id="removeBtn" action="javaProjectsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

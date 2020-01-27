@@ -1,0 +1,65 @@
+PRIAMY
+a = b
+    {
+        expression stmt
+            -assign expr
+    }
+
+NEPRIAMY
+if ( v podmienke a )
+then b
+else b
+    {
+        ifstmt
+    }
+
+while ( v podmienke a)
+then b
+    {
+        whilestmt
+    }
+
+do
+b
+while (v podmienke a)
+    {
+        dostmt
+    }
+
+switch(a)
+case then b
+    {
+        switchstmt
+    }
+
+for(; v podmienke a;){
+    b
+}
+    {
+        forstmt
+    }
+
+foreach?
+
+context
+    all vars in scope
+    zavislosti -
+
+ClassOrInterfaceDeclaration
+    members - FieldDeclaration
+    members - MethodDeclaration
+        body - BlockStmt
+            stmts - ExpressionStmt
+                expr - AssignExpr
+                     target - NameExpr
+                     var - NameExpr
+            stmts - IfStmt
+                - condition - BinaryExpr
+                - thenStmt - BlockStmt
+                    stmts - ExpressionStmt
+                        epxr - UnaryExpr
+                - elseStmt - BlockStmt
+                    stmts - ExpressionStmt
+                        expr - UnaryExpr
+            stmts - ExpressionStmt
+                expr - VariableDeclaration

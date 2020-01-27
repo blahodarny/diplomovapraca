@@ -1,0 +1,41 @@
+LiteralExpr{}
+NameExpr{
+    name:String
+}
+EnclosedExpr{
+    inner: Expression
+}
+UnaryExpr{
+    ExpressionExpr
+}
+BinaryExpr{
+    left: Expression
+    right: Expression
+}
+InstanceOfExpr{
+    expr: Expression
+    type: Type
+}
+AssignExpr{
+    target: Expression
+    var: Expression
+}
+ObjectCreationExpr{
+    scope: Expression
+    type: ClassOrInterfaceType
+    typeArgs: List<Type>
+    args: List<Expression>
+    anonymousClassBody: List<BodyDeclaration>
+}
+ConditionalExpr{
+    condition: Expression
+    thenExpr: Expression
+    elseExpr: Expression
+}
+MethodCallExpr{
+    scope: Expression
+    typeArgs: List<Type>
+    name: String
+    args: List<Expression>
+}
+

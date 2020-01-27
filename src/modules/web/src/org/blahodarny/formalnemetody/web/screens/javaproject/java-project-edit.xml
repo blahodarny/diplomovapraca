@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="org.blahodarny.formalnemetody.web.screens.javaproject">
+    <data>
+        <instance id="javaProjectDc"
+                  class="org.blahodarny.formalnemetody.entity.JavaProject"
+                  view="javaProject-view">
+            <collection id="sourceDc" property="sources"/>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="javaProjectDc">
+            <column width="250px">
+                <textField id="titleField" property="title"/>
+            </column>
+        </form>
+        <groupBox width="100%">
+            <table width="100%"
+                   id="sourcesTable" dataContainer="sourceDc" caption="msg://files" icon="COFFEE">
+                <actions>
+                    <action id="create" type="create"/>
+                    <action id="edit" type="edit"/>
+                    <action id="remove" type="remove"/>
+                    <action id="parse"/>
+                </actions>
+                <columns>
+                    <column id="title"/>
+                </columns>
+                <buttonsPanel alwaysVisible="true">
+                    <button id="createBtn" action="sourcesTable.create"/>
+                    <button id="editBtn" action="sourcesTable.edit"/>
+                    <button id="removeBtn" action="sourcesTable.remove"/>
+                    <button id="parseBtn" action="sourcesTable.parse" caption="Test"/>
+                </buttonsPanel>
+                <rows/>
+                <rowsCount/>
+            </table>
+            <label value="Result" />
+            <textArea id="resultArea" width="100%" rows="15" editable="false" />
+        </groupBox>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

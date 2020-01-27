@@ -1,0 +1,8 @@
+explicitny tok
+blockstmt
+  expressionStmt
+    -expression
+        -assign expr
+            -left-expr = namedepxr - name
+            -right-expr = binaryexpr - namedexpr - name
+                                     - named expr - name

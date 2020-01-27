@@ -1,0 +1,44 @@
+BlockStmt{
+    body: List<Statement>
+}
+EmptyStmt{}
+IfStmt{
+    condition: Expression
+    thenStmt: Statement
+    elseStmt: Statement
+}
+DoStmt{
+    condition: Expression
+    body: Statement
+}
+SwitchStmt{
+    selector: Expression
+    entries: SwitchEntryStmt {
+        label: Expression
+        stmts: List<Statement>
+    }
+}
+ReturnStmt{
+    expr: Expression
+}
+TypeDeclarationStmt{
+    typeDeclaration: TypeDeclaration
+}
+ExpressionStmt{
+    expr: Expression
+}
+WhileStmt{
+    condition: Expression
+    body: Statement
+}
+ForEachStmt{
+    var: VariableDeclarationExpr
+    iterable: Expression
+    body: Statement
+}
+ForStmt{
+    init: List<Expression>
+    compare: Expression
+    update: List<Expression>
+    body: Statement
+}
